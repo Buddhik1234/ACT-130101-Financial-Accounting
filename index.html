@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ACT 130101: Financial Accounting</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#065f46">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FinAccounting">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -1364,6 +1370,17 @@
     function closeVocabDrawer() {
         document.getElementById('vocab-backdrop').classList.remove('open');
         document.getElementById('vocab-drawer').classList.remove('open');
+    }
+    </script>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(() => {
+                // Try relative path if root-relative fails (e.g. GitHub Pages subpath)
+                navigator.serviceWorker.register('./sw.js');
+            });
+        });
     }
     </script>
 </body>
